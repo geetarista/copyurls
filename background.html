@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <script>
+      chrome.browserAction.onClicked.addListener(function() {
+        var urls = '';
+        var textarea = document.getElementById('text');
+
+        chrome.tabs.getAllInWindow(null, function(tabList) {
+          // Loop through tabs and get urls for each.
+          for (var tab in tabList) {
+            urls += (tabList[tab].url + '\n');
+          }
+
+          // Set the value of the textarea returned from getTabUrls().
+          textarea.value = urls;
+
+          // Select all of the text in the textarea.
+          textarea.select();
+
+          // Copy the text selected to the clipboard.
+          document.execCommand('copy', false, null);
+          
+          // Clear out the value just in case.
+          textarea.value = '';
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <textarea id='text'></textarea>
+  </body>
+</html>
