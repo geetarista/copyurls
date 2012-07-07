@@ -1,11 +1,14 @@
 {
   "name": "Copyurls",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Copies urls from tabs",
-  "background_page": "background.html",
+  "background": {
+    "page": "background.html"
+  },
   "browser_action": {
     "default_title": "Copyurls",
     "default_icon": "icon.png"
    },
-  "permissions": ["tabs"]
+  "permissions": ["tabs"],
+  "manifest_version": 2
 }
